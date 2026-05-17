@@ -1,6 +1,5 @@
 /.idea
 node_modules/
-*.js
-*.js.map
-*.d.ts
-*.d.ts.map
+dist
+build
+*.tsbuildinfo
