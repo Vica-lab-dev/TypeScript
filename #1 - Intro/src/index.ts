@@ -9,7 +9,7 @@ programmingLanguages.push("PHP");
 let result: string | number = "OK";
 
 interface User {
-    name: string;
+    name: string,
     age: number
 }
 
