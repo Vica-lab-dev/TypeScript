@@ -45,3 +45,5 @@ add(1, 2);
 function addRide(location: string, length: number): string {
     return `Finished a ride from ${location} and it took ${length} kilometers`;
 }
+
+const userInfo: [string, number, boolean ] = ["Vica", 55, true];
