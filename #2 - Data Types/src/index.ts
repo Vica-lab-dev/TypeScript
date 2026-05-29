@@ -47,3 +47,5 @@ function addRide(location: string, length: number): string {
 }
 
 const userInfo: [string, number, boolean ] = ["Vica", 55, true];
+
+const location: [number, number, string] = [23.1111, -74.2666, "New York City"];
