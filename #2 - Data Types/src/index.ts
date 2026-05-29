@@ -28,7 +28,8 @@
  * -Interface
  */
 
-function sayHello(message: string|number) {
+function sayHello(message: string|number): void
+{
     console.log(message);
 }
 
