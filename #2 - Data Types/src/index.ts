@@ -52,5 +52,4 @@ type locationType = [number, number, string];
 const location: locationType[] = [
     [23.1111, -74.2666, "New York City"],
     [35.1684, -68.2436, "Belgrade"],
-
 ];
