@@ -28,3 +28,10 @@
  * -Interface
  */
 
+function sayHello(message: string|number) {
+    console.log(message);
+}
+
+sayHello("Vica");
+sayHello(5);
+
