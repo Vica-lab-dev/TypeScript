@@ -41,3 +41,7 @@ function add(a: number, b:number): number {
 }
 
 add(1, 2);
+
+function addRide(location: string, length: number): string {
+    return `Finished a ride from ${location} and it took ${length} kilometers`;
+}
