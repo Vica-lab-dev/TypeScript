@@ -49,7 +49,26 @@ function addOrder(fullName: nameFormat, cityAndCountry: string, zip: number, pro
 }
 
 function listOrders(orderList: OrderInterface[]): void {
-    orderList.forEach(item => console.log(item));
+    orderList.forEach(item => {
+        const ordersDiv: HTMLElement = document.querySelector("#orderList")!;
+
+        const singleOrder: HTMLDivElement = document.createElement("div");
+
+        const singleOrderTitle: HTMLHeadingElement = document.createElement("h1");
+        singleOrderTitle.textContent = item.firstName + " " + item.lastName;
+
+        const locationParagraph: HTMLParagraphElement = document.createElement("p");
+        locationParagraph.textContent = item.city + ", " + item.country;
+
+        const productParagraph: HTMLParagraphElement = document.createElement("p");
+        productParagraph.textContent = item.product;
+
+        const priceSpan: HTMLSpanElement = document.createElement("span");
+        priceSpan.textContent = `${item.amount}`;
+
+        singleOrder.append(singleOrderTitle, locationParagraph, productParagraph, priceSpan);
+        ordersDiv.append(singleOrder);
+    });
 }
 
 const singleOrder = addOrder("Marko Markovic", "Kragujevac Serbia", 34000, "Laptop", 1, "EUR");
