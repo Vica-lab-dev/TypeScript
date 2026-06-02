@@ -1,3 +1,5 @@
+const orders: OrderInterface[] = [];
+
 type Currency = "EUR" | "RSD";
 type nameFormat = `${string} ${string}`;
 
@@ -47,4 +49,6 @@ function addOrder(fullName: nameFormat, cityAndCountry: string, zip: number, pro
 }
 
 const singleOrder = addOrder("Marko Markovic", "Kragujevac Serbia", 34000, "Laptop", 1, "EUR");
-console.log(singleOrder);
+const secondOrder = addOrder("Pera Prokic", "Beograd Serbia", 11000, "Monitor", 3, "RSD");
+orders.push(singleOrder, secondOrder);
+console.log(orders);
