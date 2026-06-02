@@ -1,4 +1,5 @@
 type Currency = "EUR" | "RSD";
+type nameFormat = `${string} ${string}`;
 
 interface OrderInterface {
     firstName: string,
@@ -11,7 +12,7 @@ interface OrderInterface {
     currency: Currency
 }
 
-function addOrder(fullName: string, cityAndCountry: string, zip: number, product: string, amount: number, currency: Currency): OrderInterface {
+function addOrder(fullName: nameFormat, cityAndCountry: string, zip: number, product: string, amount: number, currency: Currency): OrderInterface {
     const [firstName = "", lastName = ""] = fullName.split(" ");
     const [city = "", country = ""] = cityAndCountry.split(" ");
 
