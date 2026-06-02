@@ -48,10 +48,8 @@ function addOrder(fullName: nameFormat, cityAndCountry: string, zip: number, pro
     };
 }
 
-function listOrders(orderList: OrderInterface[]) {
-    orderList.forEach(function (item, key){
-        console.log(item);
-    });
+function listOrders(orderList: OrderInterface[]): void {
+    orderList.forEach(item => console.log(item));
 }
 
 const singleOrder = addOrder("Marko Markovic", "Kragujevac Serbia", 34000, "Laptop", 1, "EUR");
