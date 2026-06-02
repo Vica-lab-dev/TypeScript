@@ -1,6 +1,24 @@
 type Currency = "EUR" | "RSD";
 type nameFormat = `${string} ${string}`;
 
+/**
+ * Nase pravilo: ExactlyTwoWords
+ * <S extends string>: S = Nasledjuje pravila stringa
+ * S extends `${infer First} ${infer Second}`: Podelili smo validaciju u dva dela, First, Second [string, string]
+ * Second extends `${string} ${string} -> Da li drugi deo (Marko Markovic) sadrzi nesto posle drugog stringa
+ *  First extends `${string} ${string}` -> Da li prvi deo ima razmak, ako ima - never, ako nema onda S validacija...
+ */
+
+type ExactlyTwoWords<S extends string> =
+    S extends `${infer First} ${infer Second}`
+        ? Second extends `${string} ${string}`
+        ? never
+        :
+        First extends `${string} ${string}`
+            ? never
+            : S
+        : never;
+
 interface OrderInterface {
     firstName: string,
     lastName: string,
