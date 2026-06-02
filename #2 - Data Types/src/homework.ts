@@ -48,7 +48,15 @@ function addOrder(fullName: nameFormat, cityAndCountry: string, zip: number, pro
     };
 }
 
+function listOrders(orderList: OrderInterface[]) {
+    orderList.forEach(function (item, key){
+        console.log(item);
+    });
+}
+
 const singleOrder = addOrder("Marko Markovic", "Kragujevac Serbia", 34000, "Laptop", 1, "EUR");
 const secondOrder = addOrder("Pera Prokic", "Beograd Serbia", 11000, "Monitor", 3, "RSD");
 orders.push(singleOrder, secondOrder);
 console.log(orders);
+
+listOrders(orders);
