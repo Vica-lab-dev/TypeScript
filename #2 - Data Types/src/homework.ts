@@ -1,3 +1,5 @@
+const mainDiv: HTMLElement = document.querySelector("#orderList")!;
+
 const orders: OrderInterface[] = [];
 
 type Currency = "EUR" | "RSD";
@@ -50,8 +52,6 @@ function addOrder(fullName: nameFormat, cityAndCountry: string, zip: number, pro
 
 function listOrders(orderList: OrderInterface[]): void {
     orderList.forEach(item => {
-        const ordersDiv: HTMLElement = document.querySelector("#orderList")!;
-
         const singleOrder: HTMLDivElement = document.createElement("div");
 
         const singleOrderTitle: HTMLHeadingElement = document.createElement("h1");
@@ -67,13 +67,28 @@ function listOrders(orderList: OrderInterface[]): void {
         priceSpan.textContent = `${item.amount}`;
 
         singleOrder.append(singleOrderTitle, locationParagraph, productParagraph, priceSpan);
-        ordersDiv.append(singleOrder);
+        mainDiv.append(singleOrder);
     });
 }
 
 const singleOrder = addOrder("Marko Markovic", "Kragujevac Serbia", 34000, "Laptop", 1, "EUR");
 const secondOrder = addOrder("Pera Prokic", "Beograd Serbia", 11000, "Monitor", 3, "RSD");
 orders.push(singleOrder, secondOrder);
-console.log(orders);
 
 listOrders(orders);
+
+function search(product: string) {
+    orders.forEach(item => {
+        if(item.product === product) {
+            const div: HTMLDivElement = document.createElement("div");
+
+            const productTitle: HTMLHeadingElement = document.createElement("h1");
+            productTitle.textContent = item.product;
+
+            div.append(productTitle);
+            mainDiv.append(div);
+        }
+    });
+}
+
+search("Laptop");
