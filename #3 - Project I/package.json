@@ -12,9 +12,13 @@
     "build": "webpack"
   },
   "devDependencies": {
+    "dotenv-webpack": "^9.0.0",
     "ts-loader": "^9.6.0",
     "typescript": "^6.0.3",
     "webpack": "^5.107.2",
     "webpack-cli": "^7.0.3"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2"
   }
 }
