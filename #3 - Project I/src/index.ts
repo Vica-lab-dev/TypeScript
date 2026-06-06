@@ -1,3 +1,6 @@
+import {buildUrl} from "./services/omdbApiServices";
 
-const API_KEY = process.env.API_KEY;
-const API_URL = process.env.API_URL;
+buildUrl([
+    {key: "t", value: "Terminator"},
+    {key: "y", value: "2020"},
+])
