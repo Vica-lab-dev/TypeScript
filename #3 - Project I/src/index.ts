@@ -1,6 +1,8 @@
-import {buildUrl} from "./services/omdbApiServices";
+import {callOMDBApi} from "./services/omdbApiServices";
 
-buildUrl([
+const response = await callOMDBApi([
     {key: "t", value: "Terminator"},
-    {key: "y", value: "2020"},
-])
+    {key: "y", value: "2000"}
+]);
+
+console.log(response);
