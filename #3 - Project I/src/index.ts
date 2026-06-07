@@ -1,5 +1,6 @@
 import {callOMDBApi} from "./services/omdbApiServices";
 import {generateYears} from "./helpers/yearGeneratorHelper";
+import {getMovieDetails, getRandomDetails} from "./helpers/renderMovieDetails";
 
 const selectMovieYear = document.querySelector("#movieYears")  as HTMLSelectElement;
 
@@ -16,10 +17,18 @@ searchMovieElement.addEventListener("click", async (e) => {
         return;
     }
 
-    const response = await callOMDBApi([
+    let response = await callOMDBApi([
         {key: "s", value: movieNameElement.value},
         {key: "y", value: selectMovieYear.value}
     ]);
 
-    console.log(response);
+    if(response.data.Error === "Movie not found!") {
+        response = await callOMDBApi([
+            {key: "s", value: movieNameElement.value},
+        ]);
+
+        getRandomDetails(response);
+    } else {
+        getMovieDetails(response);
+    }
 });

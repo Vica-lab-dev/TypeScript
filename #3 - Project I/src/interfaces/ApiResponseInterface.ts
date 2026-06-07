@@ -1,6 +1,10 @@
 export interface ApiResponseInterface {
     config: {},
-    data: {},
+    data: {
+        Error: string;
+        Search: any;
+        forEach: any;
+    },
     headers: {},
     request: {},
     status: string,

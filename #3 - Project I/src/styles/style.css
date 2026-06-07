@@ -1,0 +1,21 @@
+.flex {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.margin {
+    margin-right: 10px;
+}
+
+.witdh {
+    width: 100%;
+}
+
+.height {
+    height: 600px;
+}
+
+.center {
+    text-align: center;
+}
