@@ -11,28 +11,32 @@ namespace Email {
 }
 
 namespace BudgetTracker {
-    export function addExpense(expense: string, amount: number): void {
-        const expenses = getAllExpenses();
-        expenses.push({expense: expense, amount: amount});
+    export namespace Finances {
+        export function addExpense(expense: string, amount: number): void {
+            const expenses = getAllExpenses();
+            expenses.push({expense: expense, amount: amount});
 
-        localStorage.setItem('expenses', JSON.stringify(expenses));
+            localStorage.setItem('expenses', JSON.stringify(expenses));
+        }
+
+        export function getAllExpenses() {
+            const data = localStorage.getItem('expenses');
+            return data ? JSON.parse(data) : [];
+        }
     }
 
-    export function getAllExpenses() {
-        const data = localStorage.getItem('expenses');
-        return data ? JSON.parse(data) : [];
-    }
+    export namespace UI {
+        import getAllExpenses = BudgetTracker.Finances.getAllExpenses;
 
-    export function showBudget(): void {
-        const data = getAllExpenses();
+        export function showBudget(): void {
+            const data = getAllExpenses();
 
-        data.forEach((expense: { expense: string; amount: number; }) => {
-            const budgetDiv = document.querySelector("#personalBudget") as HTMLElement;
-            budgetDiv.innerHTML += `<p>${expense.expense}: ${expense.amount}</p>`
-        });
+            data.forEach((expense: { expense: string; amount: number; }) => {
+                const budgetDiv = document.querySelector("#personalBudget") as HTMLElement;
+                budgetDiv.innerHTML += `<p>${expense.expense}: ${expense.amount}</p>`
+            });
+        }
     }
 }
 
-BudgetTracker.addExpense("New PC", 5000);
-BudgetTracker.addExpense("New Mouse", 50);
-BudgetTracker.showBudget();
+BudgetTracker.UI.showBudget();
