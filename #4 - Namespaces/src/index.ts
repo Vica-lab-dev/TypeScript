@@ -22,7 +22,17 @@ namespace BudgetTracker {
         const data = localStorage.getItem('expenses');
         return data ? JSON.parse(data) : [];
     }
+
+    export function showBudget(): void {
+        const data = getAllExpenses();
+
+        data.forEach((expense: { expense: string; amount: number; }) => {
+            const budgetDiv = document.querySelector("#personalBudget") as HTMLElement;
+            budgetDiv.innerHTML += `<p>${expense.expense}: ${expense.amount}</p>`
+        });
+    }
 }
 
 BudgetTracker.addExpense("New PC", 5000);
 BudgetTracker.addExpense("New Mouse", 50);
+BudgetTracker.showBudget();
