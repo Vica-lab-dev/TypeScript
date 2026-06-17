@@ -10,5 +10,19 @@ namespace Email {
     }
 }
 
-Chat.send("Test");
-Email.send("Test123");
+namespace BudgetTracker {
+    export function addExpense(expense: string, amount: number): void {
+        const expenses = getAllExpenses();
+        expenses.push({expense: expense, amount: amount});
+
+        localStorage.setItem('expenses', JSON.stringify(expenses));
+    }
+
+    export function getAllExpenses() {
+        const data = localStorage.getItem('expenses');
+        return data ? JSON.parse(data) : [];
+    }
+}
+
+BudgetTracker.addExpense("New PC", 5000);
+BudgetTracker.addExpense("New Mouse", 50);
