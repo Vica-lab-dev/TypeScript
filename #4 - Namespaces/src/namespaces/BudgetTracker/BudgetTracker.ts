@@ -1,14 +1,22 @@
 export namespace BudgetTracker {
     export namespace Finances {
+
+        const STORAGE_KEY = "expenses";
+
+        interface Expense {
+            expense: string,
+            amount: number
+        }
+
         export function addExpense(expense: string, amount: number): void {
             const expenses = getAllExpenses();
             expenses.push({expense: expense, amount: amount});
 
-            localStorage.setItem('expenses', JSON.stringify(expenses));
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(expenses));
         }
 
-        export function getAllExpenses() {
-            const data = localStorage.getItem('expenses');
+        export function getAllExpenses(): Expense[] {
+            const data = localStorage.getItem(STORAGE_KEY);
             return data ? JSON.parse(data) : [];
         }
     }
