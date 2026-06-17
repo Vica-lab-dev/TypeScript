@@ -10,9 +10,18 @@ export namespace BudgetTracker {
 
         export function addExpense(expense: string, amount: number): void {
             const expenses = getAllExpenses();
+
+            if(expenseExists(expense, expenses)) {
+                return;
+            }
+
             expenses.push({expense: expense, amount: amount});
 
             localStorage.setItem(STORAGE_KEY, JSON.stringify(expenses));
+        }
+
+        function expenseExists(expense: string, expenses: Expense[]): boolean {
+            return expenses.some(e => e.expense.toLowerCase() === expense.toLowerCase());
         }
 
         export function getAllExpenses(): Expense[] {
