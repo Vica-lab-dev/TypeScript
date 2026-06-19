@@ -56,3 +56,11 @@ const house: Partial<Property>[]= [
     {name: "Red House", address: "Belong 23", city: "Rio", price: 2000000},
     {name: "Blue House", address: "Dest 53", city: "Monaco"}
 ];
+
+
+type roles = "admin" | "moderator" | "guest";
+
+const rolesPermissions: Partial<Record<roles, boolean>> = {
+    admin: true,
+    guest: false
+}
