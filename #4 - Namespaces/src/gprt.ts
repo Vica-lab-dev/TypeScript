@@ -92,7 +92,7 @@ const userData: UserInfo = {
     age: 28
 }
 
-function getUserKeyValue<UserInfo, K extends keyof UserInfo>(data: UserInfo, key: K) {
+function getUserKeyValue<UserInfo, K extends keyof UserInfo>(data: UserInfo, key: K): UserInfo[K] {
     return data[key];
 }
 
