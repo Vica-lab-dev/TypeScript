@@ -97,3 +97,19 @@ function getUserKeyValue<UserInfo, K extends keyof UserInfo>(data: UserInfo, key
 }
 
 getUserKeyValue(userData, "email")
+
+
+
+//Required -> Svaki podatak je obavezan
+
+interface Bank {
+    amount: number,
+    accountName: string,
+    blocked?: boolean // ? -> opcionalan
+}
+
+const myAccount: Required<Bank> = {
+    amount: 5000,
+    accountName: "Devise",
+    blocked: true,
+}
