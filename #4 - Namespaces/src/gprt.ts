@@ -29,3 +29,11 @@ const students: Record<string, number> = {
     Marko: 4,
     Toma: 5,
 };
+
+type Role = "admin" | "editor" | 'guest';
+
+const permissions: Record<Role, boolean> = {
+    admin: true,
+    editor: false,
+    guest: false
+};
