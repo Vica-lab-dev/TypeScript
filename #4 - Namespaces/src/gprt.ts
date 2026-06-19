@@ -84,3 +84,16 @@ interface UserInfo {
 
 //Nesto keyof UserInfo -> "Nesto je ustvari neki kljuc is UserInfo"
 type UserKey = keyof UserInfo; // UserKey = "email" | "name" | "age";
+
+
+const userData: UserInfo = {
+    email: "vica@gmail.com",
+    name: "Vica P",
+    age: 28
+}
+
+function getUserKeyValue<UserInfo, K extends keyof UserInfo>(data: UserInfo, key: K) {
+    return data[key];
+}
+
+getUserKeyValue(userData, "email")
