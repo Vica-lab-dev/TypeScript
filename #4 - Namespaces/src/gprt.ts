@@ -22,4 +22,10 @@ const userInfo: Record<string, any> = {
     name: "Vica",
     age: 28,
     roles: ["admin", "user"]
-}
+};
+
+const students: Record<string, number> = {
+    Vica: 4,
+    Marko: 4,
+    Toma: 5,
+};
