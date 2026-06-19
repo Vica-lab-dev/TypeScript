@@ -15,3 +15,11 @@ const expenses = [
     {name: "Food", amount: 20},
 ];
 console.log(getFirst(expenses));
+
+//Record
+
+const userInfo: Record<string, any> = {
+    name: "Vica",
+    age: 28,
+    roles: ["admin", "user"]
+}
