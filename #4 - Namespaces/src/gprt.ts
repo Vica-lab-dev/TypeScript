@@ -71,3 +71,16 @@ const updateFields: Partial<Record<Fields, any>>  = {
     email: 5,
     password: "test123"
 };
+
+
+
+// KeyOf - const A je kljuc iz nekog drugog podatka (interface A)
+
+interface UserInfo {
+    email: string,
+    name: string,
+    age: number
+}
+
+//Nesto keyof UserInfo -> "Nesto je ustvari neki kljuc is UserInfo"
+type UserKey = keyof UserInfo; // UserKey = "email" | "name" | "age";
