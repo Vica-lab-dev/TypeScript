@@ -113,3 +113,19 @@ const myAccount: Required<Bank> = {
     accountName: "Devise",
     blocked: true,
 }
+
+function createBankAccount(data: Required<Bank>) {
+    return {
+        name: data.accountName,
+        amount: data.amount,
+        blocked: data.blocked
+    }
+}
+
+function updateBankAccount(data: Partial<Bank>) {
+    return {
+        name: data.accountName ?? "Unknown",
+        amount: data.amount ?? 0,
+        blocked: data.blocked ?? false
+    }
+}
