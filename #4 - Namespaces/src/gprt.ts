@@ -16,6 +16,9 @@ const expenses = [
 ];
 console.log(getFirst(expenses));
 
+
+
+
 //Record
 
 const userInfo: Record<string, any> = {
@@ -37,3 +40,19 @@ const permissions: Record<Role, boolean> = {
     editor: false,
     guest: false
 };
+
+
+
+// Partial
+
+interface Property {
+    name: string;
+    address: string;
+    city: string;
+    price: number;
+}
+
+const house: Partial<Property>[]= [
+    {name: "Red House", address: "Belong 23", city: "Rio", price: 2000000},
+    {name: "Blue House", address: "Dest 53", city: "Monaco"}
+];
