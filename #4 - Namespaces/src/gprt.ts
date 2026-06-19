@@ -63,4 +63,11 @@ type roles = "admin" | "moderator" | "guest";
 const rolesPermissions: Partial<Record<roles, boolean>> = {
     admin: true,
     guest: false
-}
+};
+
+type Fields = "username" | "email" | "password";
+
+const updateFields: Partial<Record<Fields, any>>  = {
+    email: 5,
+    password: "test123"
+};
